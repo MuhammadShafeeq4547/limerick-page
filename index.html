@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            height: max-content;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 55px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            z-index: 1111;
+        }
+
+        .nav {
+            width: 97%;
+            height: max-content;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 152px;
+            height: max-content;
+            margin-top: .5%;
+            cursor: pointer;
+        }
+
+        .invato {
+            width: 100%;
+        }
+
+        .button {
+            width: 90px;
+            height: 34px;
+            border-radius: 5px;
+            background-color: #82B440;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #7aa93cf4;
+            transition: 0.2s;
+        }
+
+        .navbar2 {
+            width: 100%;
+            height: 154px;
+            background-color: #FFFFFF;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 11;
+        }
+
+        .p-parent {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .p-nav2 {
+            font-size: 350px;
+            text-align: center;
+            margin-top: -170px;
+            color: #FAFAFA;
+        }
+
+        .nav2 {
+            width: 92%;
+            height: 70px;
+            position: absolute;
+            left: 4%;
+            top: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .icon-head {
+            width: 140px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fouji {
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fouji:hover {
+            color: #FF3E79;
+        }
+
+        .nav3 {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo1 {
+            width: 155px;
+            height: max-content;
+        }
+
+        .logo-img {
+            width: 100%;
+        }
+
+        .ul {
+            width: 500px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bar {
+            font-size: 23px;
+        }
+
+        .lis {
+            list-style: none;
+            font-size: 14px;
+            font-weight: 600;
+            width: max-content;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lis:hover {
+            color: #FF3E79;
+        }
+
+        .dropdown1 {
+            width: 43%;
+            padding: 0px 0px 5px 0px;
+            background-color: white;
+            box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.136);
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .home:hover+.dropdown1 {
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .dropdown1:hover {
+            visibility: visible;
+            opacity: 1;
+            top: 100%;
+        }
+
+        .ul2 {
+            width: 100%;
+            height: 100%;
+            border-top: 3px solid #FF3E79;
+        }
+
+        .li-p {
+            width: 100%;
+            height: 45px;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.403);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .li {
+            list-style: none;
+            margin-left: 10%;
+            font-size: 15px;
+            font-weight: 400;
+            color: rgb(128, 128, 128);
+        }
+
+        .li-p:hover li {
+            color: #FF3E79;
+        }
+
+        .color {
+            width: 0%;
+            height: 100%;
+            background-color: #FF3E79;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .li-p:hover .color {
+            animation: foji .3s linear;
+        }
+
+        @keyframes foji {
+            0% {
+                width: 0%;
+                opacity: 1;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                width: 100%;
+            }
+        }
+
+        .none {
+            border: none;
+        }
+
+        .dropdown2 {
+            width: 43%;
+            padding: 0px 0px 5px 0px;
+            background-color: white;
+            box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.136);
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 16%;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .about:hover+.dropdown2 {
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .dropdown2:hover {
+            visibility: visible;
+            opacity: 1;
+            top: 100%;
+        }
+
+        .dropdown3 {
+            width: 43%;
+            padding: 0px 0px 5px 0px;
+            background-color: white;
+            box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.136);
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 33%;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .portfolio:hover+.dropdown3 {
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .dropdown3:hover {
+            visibility: visible;
+            opacity: 1;
+            top: 100%;
+        }
+
+        .dropdown4 {
+            width: 43%;
+            padding: 0px 0px 5px 0px;
+            background-color: white;
+            box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.136);
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 55%;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .blog:hover+.dropdown4 {
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .dropdown4:hover {
+            visibility: visible;
+            opacity: 1;
+            top: 100%;
+        }
+
+        .navbar-none {
+            width: 100%;
+            height: 90px;
+            background-color: white;
+            box-shadow: 2px 2px 10px 5px rgba(128, 128, 128, 0.206);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .nav4 {
+            width: 96%;
+            height: max-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo3 {
+            width: 150px;
+            height: max-content;
+        }
+
+        .button-none {
+            width: 53px;
+            height: 45px;
+            border: 1px solid;
+            outline: none;
+            border: none;
+            font-size: 25px;
+            color: white;
+            background-color: #FF3E79;
+        }
+
+        .parent-1 {
+            width: 100%;
+            padding: 170px 0px 100px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .parent-head {
+            width: 430px;
+            position: relative;
+        }
+
+        .p1 {
+            font-size: 16px;
+            font-weight: 400;
+            text-align: center;
+            color: gray;
+        }
+
+        .radius {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #FFE991;
+            margin-top: -5%;
+        }
+
+        .radius2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #A5FFD6;
+        }
+
+        .h1-design {
+            font-size: 79px;
+            font-weight: 700;
+            text-align: center;
+            position: absolute;
+            top: 15%;
+            left: 5%;
+        }
+
+        .span2 {
+            color: #FFC1FB;
+        }
+
+        .p-div {
+            width: 650px;
+            height: max-content;
+        }
+
+        .p2 {
+            color: gray;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .main2 {
+            width: 100%;
+            height: 72vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        
+
+        .img-1 {
+            width: 0%;
+            height: 100%;
+            transition: all linear 0.3s;
+            background-image: url(./images/8.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .image1 {
+            width: 100%;
+            height: 100%;
+        }
+        .main2:hover .img-1{
+            width: 100%;
+        }
+        .parent-2{
+            width: 90%;
+            position: absolute;
+            left: 5%;
+            display: flex;
+        }
+        .date-div{
+            width: 125px;
+            height: 165px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: #EBEBEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .date{
+            width: 88%;
+            height: 88%;
+            border: 1px solid rgba(128, 128, 128, 0.233);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #EBEBEB;
+        }
+        .main2:hover .date-div{
+            background-color: transparent;
+        }
+        .h1-26{
+            font-size: 60px;
+            font-weight: 700;
+        }
+        .p-july{
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .parent-text{
+            width: 78%;
+            height: 100%;
+            margin-left: 5%;
+        }
+        .p-text{
+            font-size: 16px;
+            font-weight: 400;
+            color: gray;
+        }
+        .h1-p2{
+            width: 630px;
+            height: max-content;
+        }
+        .h1-challange{
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .p-text{
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 28px;
+            margin-top: 10px;
+        }
+        .span3{
+            color: #FF3E79;
+        }
+        .p2-text{
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 15px;
+            color: gray;
+        }
+        .span5{
+            color: black;
+        }
+        .main2:hover .name{
+            color: white;
+        }
+        .main2:hover .span5{
+            color: white;
+        }
+        .width1{
+            width: 100%;
+        }
+        .font{
+            font-size: 30px;
+        }
+        .footer{
+            width: 100%;
+            height: max-content;
+            padding: 50px 0px 50px 0px;
+        }
+        
+        .last-parent{
+            width: 95%;
+            margin: auto;
+        }
+        .logo-last{
+            width: 180px;
+            height: max-content;
+            cursor: pointer;
+            margin: auto;
+        }
+        .l-f{
+            width: 100%;
+        }
+        .p-f{
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 1%;
+        }
+        .last-icon{
+            width: 160px;
+            margin: auto;
+            margin-top: 2.5%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .fouji{
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .fouji:hover{
+            color: #FF3272;
+        }
+
+
+
+
+
+
+
+        @media screen and (max-width:1025px) {
+            .icon-head {
+                display: none;
+            }
+
+            .nav3 {
+                width: 100%;
+            }
+
+            .box2 {
+                width: 50%;
+            }
+
+        }
+
+        @media screen and (max-width:868px) {
+            .parent-2{
+                flex-direction: column;
+            }
+            .parent-text{
+                margin-left: 0;
+                width: 100%;
+            }
+            .h1-p2{
+                width: 100%;
+            }
+            .h1-challange{
+                font-size: 23px;
+            }
+        }
+        @media screen and (max-width:768px) {
+            .navbar2 {
+                display: none;
+            }
+
+            .navbar-none {
+                display: block;
+                display: flex;
+                top: 55px;
+                z-index: 1111;
+            }
+
+           
+            .h1-div {
+                width: 300px;
+            }
+
+            .h1-2 {
+                font-size: 28px;
+            }
+
+
+
+        }
+
+        @media screen and (max-width:688px) {
+            .p-div {
+                width: 90%;
+                z-index: 11;
+            }
+
+            .parent-5 {
+                width: 400px;
+            }
+            .main2{
+                height: 90vh;
+            }
+
+
+        }
+
+        @media screen and (max-width:500px) {
+            .p-div {
+                width: 90%;
+                margin-top: -70px;
+                z-index: 11;
+            }
+        }
+
+            @media screen and (max-width:510px) {
+                .parent-head {
+                    width: 230px;
+                    height: max-content;
+                }
+
+                .h1-design {
+                    font-size: 40px;
+                    text-align: center;
+                    top: 19%;
+                }
+
+                .radius2 {
+                    display: none;
+                }
+
+                .img2 {
+                    display: none;
+                }
+                .main2{
+                    height: 110vh;
+                }
+            }
+
+        
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <div class="nav">
+                <div class="logo">
+                    <img class="envato"
+                        src="./images/envato_market-dde916a48af7413e54aa058fe7ae6856752fca799da4bec355f00aea904bfa19.svg" alt="">
+                </div>
+                <button class="button">Buy now</button>
+            </div>
+        </div>
+
+        <div class="navbar2">
+            <div class="p-parent">
+                <p class="p-nav2">LIMERICK</p>
+            </div>
+            <div class="nav2">
+                <div class="icon-head">
+                    <i class="fa-brands fa-facebook-f fouji"></i>
+                    <i class="fa-brands fa-twitter fouji"></i>
+                    <i class="fa-brands fa-google-plus-g fouji"></i>
+                    <i class="fa-solid fa-p fouji"></i>
+                    <i class="fa-solid fa-globe fouji"></i>
+                </div>
+                <div class="nav3">
+                    <div class="logo1">
+                        <img class="logo-img" src="./images/logo.png" alt="">
+                    </div>
+                    <ul class="ul">
+                        <li style="color: #FF3E79;" class="lis home">HOME</li>
+                        <div class="dropdown1">
+                            <ul class="ul2">
+                                <div class="li-p">
+                                    <li class="li">Creative Home</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Designer Home</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Portfolio Home</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Parallax Home</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Carousel Home</li>
+                                    <div class="color"></div>
+
+                                </div>
+                                <div class="li-p none">
+                                    <li class="li">Header Styles</li>
+                                    <div class="color"></div>
+
+                                </div>
+                            </ul>
+                        </div>
+                        <li class="lis about">ABOUT</li>
+                        <div class="dropdown2">
+                            <ul class="ul2">
+                                <div class="li-p">
+                                    <li class="li">About Us</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p none">
+                                    <li class="li">Error Page</li>
+                                    <div class="color"></div>
+                                </div>
+
+                            </ul>
+                        </div>
+                        <li class="lis portfolio">PORTFOLIO</li>
+                        <div class="dropdown3">
+                            <ul class="ul2">
+                                <div class="li-p">
+                                    <li class="li">Portfolio Left Sidebar</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Portfolio Right Sidebar</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Portfolio Centered</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Portfolio Slide</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p none">
+                                    <li class="li">Portfolio Masonery</li>
+                                    <div class="color"></div>
+
+                                </div>
+                            </ul>
+                        </div>
+                        <li class="lis blog">BLOG</li>
+                        <div class="dropdown4">
+                            <ul class="ul2">
+                                <div class="li-p">
+                                    <li class="li">Blog With Sidebar</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Blog Grid</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Blog List</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p">
+                                    <li class="li">Blog Masonry</li>
+                                    <div class="color"></div>
+                                </div>
+                                <div class="li-p none">
+                                    <li class="li">Blog Single</li>
+                                    <div class="color"></div>
+
+                                </div>
+                            </ul>
+                        </div>
+                        <li class="lis">CONTACT US</li>
+                        <i class="fa-solid fa-bars bar"></i>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-none">
+            <div class="nav4">
+                <div class="logo3">
+                    <img class="logo-img" src="./images/logo.png" alt="">
+                </div>
+                <button class="button-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="parent-1">
+            <div class="parent-head">
+                <p class="p1">Welcome To Limerick</p>
+                <div class="radius"></div>
+                <div class="radius2"></div>
+                <h1 class="h1-design">BLOG LIST</h1>
+            </div>
+
+            <div class="p-div">
+                <p class="p2">I like to think that my work is a living, breathing embodiment of my passion for
+                    discovery. Here’s some of it.
+                </p>
+            </div>
+        </div>
+
+    </header>
+    <section class="main2">
+            <div class="img-1">
+            </div>
+            <div class="parent-2">
+                <div class="date-div">
+                    <div class="date">
+                        <h1 class="h1-26">26</h1>
+                        <p class="p-july">July-2019</p>
+                    </div>
+                </div>
+                <div class="parent-text">
+                    <p class="p-text name">PHOTOGRAPHY
+                    </p>
+                    <div class="h1-p2">
+                        <h1 class="h1-challange name">Challange yourself to win the future.</h1>
+                    </div>
+                    <p class="p-text name">Breathing embodiment of my passion for discovery. Here’s some of it. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additionalPhosfluorescently engage worldwide Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking.
+                    </p>
+                    <p class="p2-text name"> <span class="span5">ADMIN BY JOHN DOUE  </span>   , <span class="span3"> 26  </span> Like  , <span class="span3">  06 </span>  Comment</p>
+                </div>
+            </div>
+
+    </section>
+    <section class="main2">
+        <div class="img-1">
+        </div>
+        <div class="parent-2">
+            <div class="date-div">
+                <div class="date">
+                    <h1 class="h1-26">27</h1>
+                    <p class="p-july">July-2019</p>
+                </div>
+            </div>
+            <div class="parent-text">
+                <p class="p-text name">PHOTOGRAPHY
+                </p>
+                <div class="h1-p2 width1">
+                    <h1 class="h1-challange name ">We provide wide range of web & business services.</h1>
+                </div>
+                <p class="p-text name">Breathing embodiment of my passion for discovery. Here’s some of it. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additionalPhosfluorescently engage worldwide Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking.
+                </p>
+                <p class="p2-text name"> <span class="span5">ADMIN BY JOHN DOUE  </span>   , <span class="span3"> 26  </span> Like  , <span class="span3">  06 </span>  Comment</p>
+            </div>
+        </div>
+
+</section>
+<section class="main2">
+    <div class="img-1">
+    </div>
+    <div class="parent-2">
+        <div class="date-div">
+            <div class="date">
+                <h1 class="h1-26">28</h1>
+                <p class="p-july">July-2019</p>
+            </div>
+        </div>
+        <div class="parent-text">
+            <p class="p-text name">PHOTOGRAPHY
+            </p>
+            <div class="h1-p2 ">
+                <h1 class="h1-challange name">Business Cards That Inspire.</h1>
+            </div>
+            <p class="p-text name">Breathing embodiment of my passion for discovery. Here’s some of it. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additionalPhosfluorescently engage worldwide Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking.
+            </p>
+            <p class="p2-text name"> <span class="span5">ADMIN BY JOHN DOUE  </span>   , <span class="span3"> 26  </span> Like  , <span class="span3">  06 </span>  Comment</p>
+        </div>
+    </div>
+
+</section>
+<section class="main2">
+    <div class="img-1">
+    </div>
+    <div class="parent-2">
+        <div class="date-div">
+            <div class="date">
+                <h1 class="h1-26">29</h1>
+                <p class="p-july">July-2019</p>
+            </div>
+        </div>
+        <div class="parent-text">
+            <p class="p-text name">PHOTOGRAPHY
+            </p>
+            <div class="h1-p2 ">
+                <h1 class="h1-challange name">Range of web & business services.</h1>
+            </div>
+            <p class="p-text name">Breathing embodiment of my passion for discovery. Here’s some of it. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additionalPhosfluorescently engage worldwide Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking.
+            </p>
+            <p class="p2-text name"> <span class="span5">ADMIN BY JOHN DOUE  </span>   , <span class="span3"> 26  </span> Like  , <span class="span3">  06 </span>  Comment</p>
+        </div>
+    </div>
+
+</section>
+<section class="main2">
+    <div class="img-1">
+    </div>
+    <div class="parent-2">
+        <div class="date-div">
+            <div class="date">
+                <h1 class="h1-26">30</h1>
+                <p class="p-july">July-2019</p>
+            </div>
+        </div>
+        <div class="parent-text">
+            <p class="p-text name">PHOTOGRAPHY
+            </p>
+            <div class="h1-p2 ">
+                <h1 class="h1-challange name font">Business services we provide wide range.</h1>
+            </div>
+            <p class="p-text name">Breathing embodiment of my passion for discovery. Here’s some of it. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additionalPhosfluorescently engage worldwide Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking.
+            </p>
+            <p class="p2-text name"> <span class="span5">ADMIN BY JOHN DOUE  </span>   , <span class="span3"> 26  </span> Like  , <span class="span3">  06 </span>  Comment</p>
+        </div>
+    </div>
+
+</section>
+<section class="footer">
+        <div class="last-parent">
+            <div class="logo-last">
+                <img class="l-f" src="./images/logo.png" alt="">
+            </div>
+            <p class="p-f">© Copyright 2019 Limerick. All Rights Reserved
+            </p>
+            <div class="last-icon">
+                <i class="fa-brands fa-facebook-f fouji"></i>
+                <i class="fa-brands fa-twitter fouji"></i>
+                <i class="fa-brands fa-google-plus-g fouji"></i>
+                <i class="fa-solid fa-p fouji"></i>
+                <i class="fa-solid fa-globe fouji"></i>
+            </div>
+        </div>
+</section>
+
+</body>
+
+</html>
